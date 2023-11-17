@@ -4,7 +4,7 @@ function validatePassword() {
 
     if (password !== confirmPassword) {
         alert("Passwords do not match. Please re-enter.");
-        event.preventDefault();
+        e.preventDefault();
         return false;
     }
     return true;

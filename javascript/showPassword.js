@@ -1,15 +1,21 @@
-let passwordInput = document.getElementsByName("password"),
-    toggle = document.getElementById("btnToggle"),
-    icon = document.getElementById("eyeIcon");
+function togglePasswordVisibility() {
+    const togglePassword = document.getElementById("togglePassword");
+    const password = document.getElementById("password");
 
-console.log(passwordInput);
+    togglePassword.addEventListener('click', function (e) {
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        this.classList.toggle('bi-eye');
+    });
+}
 
-function togglePassword() {
-    if (passwordInput.type === "password") {
-        passwordInput.type = "text";
-        icon.classList.add("fa-eye-slash");
-    } else {
-        passwordInput.type = "password";
-        icon.classList.remove("fa-eye-slash");
-    }
+function toggleConfirmPasswordVisibility() {
+    const togglePassword = document.getElementById("toggleConfirmPassword");
+    const password = document.getElementById("confirm_password");
+
+    togglePassword.addEventListener('click', function (e) {
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        this.classList.toggle('bi-eye');
+    });
 }

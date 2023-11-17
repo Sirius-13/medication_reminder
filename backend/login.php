@@ -1,26 +1,47 @@
 <?php
 session_start();
 
-$validUsername = "user123";
-$validPassword = "password123";
+$servername = "localhost"; 
+$username = "root";
+$password = "";
+$database = "medication_reminder";
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['username']) && isset($_POST['password'])) {
-        $enteredUsername = $_POST['username'];
+    if (isset($_POST['email']) && isset($_POST['password'])) {
+        $enteredEmail = $_POST['email'];
         $enteredPassword = $_POST['password'];
 
-        if ($enteredUsername === $validUsername && $enteredPassword === $validPassword) {
-            // Set a session variable to indicate the user is logged in (replace with actual session handling)
-            $_SESSION['username'] = $enteredUsername;
-            
-            // Redirect to a welcome or dashboard page upon successful login
-            header("Location: welcome.php");
-            exit();
+        $sql = "SELECT PasswordHash FROM users WHERE Email = '$enteredEmail'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $hashedPassword = $row['PasswordHash'];
+
+            if (password_verify($enteredPassword, $hashedPassword)) {
+                $_SESSION['email'] = $enteredEmail;
+                header("Location: ../frontend/dashboard.html");
+                exit();
+            } else {
+                echo "<script>
+            alert('Invalid username or password. Please try again.');
+            window.location.href = '../frontend/index.html';
+        </script>";
+            }
         } else {
-            echo "Invalid username or password. Please try again.";
+            echo "<script>
+            alert('Invalid username or password. Please try again.');
+            window.location.href = '../frontend/index.html';
+        </script>";
         }
-    } else {
-        echo "Please enter both username and password.";
     }
 }
+
+$conn->close();
 ?>

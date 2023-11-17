@@ -8,15 +8,9 @@ $database = "medication_reminder";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
-/*
-This code is used to check the database connectivity
-
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} else {
-    echo "Connected successfully";
 }
-*/
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];

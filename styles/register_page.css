@@ -1,7 +1,22 @@
 .bgImage {
     background-image: url('https://thumbs.dreamstime.com/z/reminder-take-medicine-calendar-written-pills-61537807.jpg?w=992');
+    background-position-x: -280px;
 }
 
 .registerCard {
     border-radius: 15px !important;
+}
+
+#togglePassword {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-left: -35px;
+    cursor: pointer;
+}
+
+#toggleConfirmPassword {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-left: -35px;
+    cursor: pointer;
 }
