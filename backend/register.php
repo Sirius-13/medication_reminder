@@ -18,18 +18,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
+    if($password == $confirm_password) {
+
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     
     $sql = "INSERT INTO users (UserID ,Username, Email, PasswordHash) VALUES ('' ,'$name', '$email', '$hashedPassword')";
 
-    if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+        $conn->close();
+        header("Location: ../frontend/dashboard.html");
+        exit();
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        $conn->close();
+        header("Location: ../frontend/register.html");
+        exit();
     }
 }
-
-$conn->close();
-header("Location: ../frontend/dashboard.html");
-exit();
 ?>
