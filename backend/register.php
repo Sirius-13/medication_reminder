@@ -18,10 +18,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
+    // Check if the email already exists
+    $checkEmailQuery = "SELECT COUNT(*) as count FROM users WHERE Email = '$email'";
+    $result = $conn->query($checkEmailQuery);
+    $count = $result->fetch_assoc()['count'];
+
+    if ($count > 0) {
+        // Email already exists, inform the user and redirect back to registration
+        echo "<script>
+            alert('The email you provided has already been used. Please try again.');
+            window.location.href = '../frontend/register.html';
+        </script>";
+        exit();
+    }
+
     if($password == $confirm_password) {
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    
     $sql = "INSERT INTO users (UserID ,Username, Email, PasswordHash) VALUES ('' ,'$name', '$email', '$hashedPassword')";
 
         if ($conn->query($sql) === TRUE) {
@@ -45,8 +58,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     window.location.href = '../frontend/dashboard.html';
                 </script>";
             }
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
         }
         $conn->close();
         exit();
