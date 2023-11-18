@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 17, 2023 at 07:24 PM
+-- Generation Time: Nov 18, 2023 at 11:31 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -53,7 +53,6 @@ INSERT INTO `users` (`UserID`, `Username`, `Email`, `PasswordHash`, `Registratio
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`UserID`),
-  ADD UNIQUE KEY `Username` (`Username`),
   ADD UNIQUE KEY `Email` (`Email`);
 
 --
