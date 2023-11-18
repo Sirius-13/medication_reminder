@@ -54,6 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $conn->query($updateTimestampSQL);
         
                 echo "<script>
+                    sessionStorage.setItem('token', '$token');
                     sessionStorage.setItem('username', '$username');
                     window.location.href = '../frontend/dashboard.html';
                 </script>";
