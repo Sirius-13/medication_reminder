@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard-Profile</title>
-    <link rel="stylesheet" type="text/css" href="../styles/dashboard_page.css">
+    <link rel="stylesheet" type="text/css" href="../styles/profile_page.css">
     <script src="../javascript/fetchUserData.js"></script>
     <script src="../javascript/tokenValidation.js"></script>
     <script src="../javascript/logout.js"></script>
@@ -149,7 +149,8 @@
             <div class="dropdown">
                 <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
                     id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                    <img src="https://t4.ftcdn.net/jpg/05/49/98/39/360_F_549983970_bRCkYfk0P6PP5fKbMhZMIb07mCJ6esXL.jpg"
+                        alt="" width="32" height="32" class="rounded-circle me-2">
                     <strong id="username">Username</strong>
                 </a>
                 <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
@@ -164,6 +165,63 @@
             </div>
         </div>
         <div class="vr"></div>
+        <div class="container bootstrap snippets bootdey mt-3">
+            <h2>Edit Profile</h2>
+            <hr>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="text-center avatarBorder">
+                        <img src="https://t4.ftcdn.net/jpg/05/49/98/39/360_F_549983970_bRCkYfk0P6PP5fKbMhZMIb07mCJ6esXL.jpg"
+                            class="avatar img-circle img-thumbnail border-0" alt="avatar">
+                        <!-- <h6>Upload a photo...</h6> -->
+
+                        <input type="file" class="form-control mt-3 inputFileType">
+                    </div>
+                </div>
+
+                <div class="col-md-9 personal-info">
+                    <!-- <div class="alert alert-info alert-dismissable">
+                        <a class="panel-close close" data-dismiss="alert">×</a>
+                        <i class="fa fa-coffee"></i>
+                        This is an <strong>.alert</strong>. Use this to show important messages to the user.
+                    </div> -->
+                    <h3>Personal info</h3>
+
+                    <form class="form-horizontal">
+                        <div class="form-group mb-3">
+                            <label class="col-lg-3 control-label">Name</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="col-lg-3 control-label">Email</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="col-lg-3 control-label">Password</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="col-lg-3 control-label">Confirm Password</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" type="text" value="">
+                            </div>
+                        </div>
+
+                        <div class="pt-1 mb-4">
+                            <button class="btn btn-success btn-lg btn-block saveBtn" type="submit">Save Edit</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <hr>
     </main>
 
 </body>

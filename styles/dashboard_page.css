@@ -105,3 +105,13 @@ main {
 .sidebar-w {
   width: 280px;
 }
+
+@media screen and (max-width: 650px) {
+  main {
+    display: block !important;
+  }
+
+  .sidebar-w {
+    width: auto;
+  }
+}
