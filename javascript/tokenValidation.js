@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             window.location.href = '../frontend/dashboard_3.html?redirect=true';
         }
-    } else if (!token && (isDashboard || isDashboard2) && !shouldRedirectToDashboard) {
+    } else if (!token && (isDashboard || isDashboard2) && shouldRedirectToDashboard) {
         window.location.href = '../frontend/index.html?redirect=true';
     }
 });
