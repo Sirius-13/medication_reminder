@@ -33,6 +33,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($password) && !empty($confirm_password) && $password === $confirm_password) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $sql .= "PasswordHash = '$hashedPassword', ";
+    } else if(empty($password) || empty($confirm_password)) {
+        echo "<script>
+            alert('Please make sure you have enter password or confirm password.');
+            window.location.href = '../frontend/profile.html';
+        </script>";
+    } else {
+        echo "<script>
+            alert('Your password and confirm not match. Please try again.');
+            window.location.href = '../frontend/profile.html';
+        </script>";
     }
 
     $sql = rtrim($sql, ', ');
