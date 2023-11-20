@@ -14,28 +14,28 @@ if ($conn->connect_error) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['email']) && isset($_POST['password'])) {
-        $enteredEmail = $_POST['email'];
-        $enteredPassword = $_POST['password'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-        $sql = "SELECT Username, PasswordHash FROM users WHERE Email = '$enteredEmail'";
+        $sql = "SELECT Username, PasswordHash FROM users WHERE Email = '$email'";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $hashedPassword = $row['PasswordHash'];
         
-            if (password_verify($enteredPassword, $hashedPassword)) {
+            if (password_verify($password, $hashedPassword)) {
                 $token = bin2hex(random_bytes(32));
                 $_SESSION['token'] = $token;
-                $_SESSION['email'] = $enteredEmail;
+                $_SESSION['email'] = $email;
                 $username = $row['Username'];
         
-                $updateTimestampSQL = "UPDATE users SET LastLoginDate = CURRENT_TIMESTAMP WHERE Email = '$enteredEmail'";
+                $updateTimestampSQL = "UPDATE users SET LastLoginDate = CURRENT_TIMESTAMP WHERE Email = '$email'";
                 $conn->query($updateTimestampSQL);
         
                 echo "<script>
                     sessionStorage.setItem('token', '$token');
-                    sessionStorage.setItem('email', '$enteredEmail');
+                    sessionStorage.setItem('email', '$email');
                     sessionStorage.setItem('username', '$username');
                     window.location.href = '../frontend/dashboard_1.html';
                 </script>";
