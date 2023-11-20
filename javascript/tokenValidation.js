@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = '../frontend/dashboard_2.html?redirect=true';
         } else if (isDashboard3) {
             window.location.href = '../frontend/dashboard_3.html?redirect=true';
-        } else {
+        } else if (isDashboardProfile) {
             window.location.href = '../frontend/profile.html?redirect=true';
         }
     } else if (!token) {
-        console.log("hahaha");
+        // console.log("hahaha");
         window.location.href = '../frontend/index.html?redirect=true';
     }
 });

@@ -33,16 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($password) && !empty($confirm_password) && $password === $confirm_password) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $sql .= "PasswordHash = '$hashedPassword', ";
-    } else if(empty($password) || empty($confirm_password)) {
-        echo "<script>
-            alert('Please make sure you have enter password or confirm password.');
-            window.location.href = '../frontend/profile.html';
-        </script>";
-    } else {
-        echo "<script>
-            alert('Your password and confirm not match. Please try again.');
-            window.location.href = '../frontend/profile.html';
-        </script>";
     }
 
     $sql = rtrim($sql, ', ');
@@ -55,12 +45,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Update session storage values after successful update
         if (!empty($username)) {
             echo "<script>
+            sessionStorage.setItem('updateSuccess', 'true');
             sessionStorage.setItem('username', '$username');
             </script>";
         }
         if (!empty($email)) {
             echo "<script>
+            sessionStorage.setItem('updateSuccess', 'true');
             sessionStorage.setItem('email', '$email');
+            </script>";
+        }
+        if(!empty($password) && !empty($confirm_password)) {
+            echo "<script>
+            sessionStorage.setItem('updateSuccess', 'true');
             </script>";
         }
         // Redirect to profile page
