@@ -9,6 +9,8 @@
     <script src="../javascript/fetchUserData.js"></script>
     <script src="../javascript/tokenValidation.js"></script>
     <script src="../javascript/displayAlert.js"></script>
+    <script src="../javascript/showDropdown.js"></script>
+    <script src="../javascript/showPassword.js"></script>
     <script src="../javascript/logout.js"></script>
     <script src="../javascript/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -37,10 +39,9 @@
             <path
                 d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z" />
         </symbol>
-        <symbol id="people-circle" viewBox="0 0 16 16">
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+        <symbol id="drawer-btn" viewBox="0 0 16 16">
             <path fill-rule="evenodd"
-                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
         </symbol>
         <symbol id="grid" viewBox="0 0 16 16">
             <path
@@ -101,14 +102,24 @@
 
     <main>
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidebar-w">
-            <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                <svg class="bi me-2" width="32" height="32">
-                    <use xlink:href="#capsule-pills" />
-                </svg>
-                <span class="fs-5">Medication Reminder</span>
-            </a>
-            <hr>
-            <ul class="nav nav-pills flex-column mb-auto">
+            <div class="d-flex justify-content-between">
+                <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <svg class="bi me-2" width="32" height="32">
+                        <use xlink:href="#capsule-pills" />
+                    </svg>
+                    <span class="fs-5">Medication Reminder</span>
+                </a>
+                <button
+                    class="fs-3 align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none border-0 bg-transparent dropdownBtn"
+                    type="button" onclick="showDropdown()">
+                    <!-- <svg class="bi me-2" width="32" height="32">
+                        <use xlink:href="#drawer-btn" />
+                    </svg> -->
+                    &#9776;
+                </button>
+            </div>
+            <hr class="dashboardOption">
+            <ul class="nav nav-pills flex-column mb-auto dashboardOption">
                 <li class="nav-item">
                     <a href="dashboard_1.html" class="nav-link link-dark" aria-current="page">
                         <svg class="bi me-2" width="16" height="16">
@@ -133,40 +144,26 @@
                         Timetable
                     </a>
                 </li>
-                <!-- <li>
-                    <a href="#" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#grid" />
-                        </svg>
-                        Products
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#people-circle" />
-                        </svg>
-                        Customers
-                    </a>
-                </li> -->
             </ul>
-            <hr>
-            <div class="dropdown">
-                <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
-                    id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="../backend/decodeProfileImage.php" alt="" width=" 32" height="32"
-                        class="rounded-circle me-2">
-                    <strong id="username">Username</strong>
-                </a>
-                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                    <!-- <li><a class="dropdown-item" href="#">New project...</a></li> -->
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <!-- <li><a class="dropdown-item" href="#">Settings</a></li> -->
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" onclick="logout()">Log Out</a></li>
-                </ul>
+            <div class="dashboardOption">
+                <hr>
+                <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+                        id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="../backend/decodeProfileImage.php" alt="" width=" 32" height="32"
+                            class="rounded-circle me-2">
+                        <strong id="username">Username</strong>
+                    </a>
+                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                        <!-- <li><a class="dropdown-item" href="#">New project...</a></li> -->
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <!-- <li><a class="dropdown-item" href="#">Settings</a></li> -->
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" onclick="logout()">Log Out</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="vr"></div>
@@ -199,7 +196,7 @@
                             <label class="col-lg-3 control-label">Username</label>
                             <div class="col-lg-8">
                                 <input class="form-control" type="text" id="username_profile_edit"
-                                    name="username_profile_edit">
+                                    name="username_profile_edit" required>
                             </div>
                         </div>
                         <div class="form-group mb-3">
@@ -211,14 +208,18 @@
                         </div>
                         <div class="form-group mb-3">
                             <label class="col-lg-3 control-label">New Password</label>
-                            <div class="col-lg-8">
-                                <input class="form-control" type="password" name="password_profile_edit">
+                            <div class="col-lg-8 d-flex">
+                                <input class="form-control" type="password" id="password" name="password_profile_edit">
+                                <i class="bi bi-eye-slash" id="togglePassword" onclick="togglePasswordVisibility()"></i>
                             </div>
                         </div>
                         <div class="form-group mb-3">
                             <label class="col-lg-3 control-label">Confirm New Password</label>
-                            <div class="col-lg-8">
-                                <input class="form-control" type="password" name="confirm_password_profile_edit">
+                            <div class="col-lg-8 d-flex">
+                                <input class="form-control" type="password" id="confirm_password"
+                                    name="confirm_password_profile_edit">
+                                <i class="bi bi-eye-slash" id="toggleConfirmPassword"
+                                    onclick="toggleConfirmPasswordVisibility()"></i>
                             </div>
                         </div>
 

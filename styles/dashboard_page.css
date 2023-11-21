@@ -108,6 +108,15 @@ main {
   width: 280px;
 }
 
+.dropdownSection {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdownBtn {
+  display: none !important;
+}
+
 @media screen and (max-width: 650px) {
   main {
     display: block !important;
@@ -120,5 +129,17 @@ main {
 
   .sidebar-w {
     width: auto;
+  }
+
+  .drawer {
+    display: none;
+  }
+
+  .dropdownBtn {
+    display: block !important;
+  }
+
+  .dashboardOption {
+    display: none !important;
   }
 }

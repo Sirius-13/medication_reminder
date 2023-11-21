@@ -55,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
                 echo "<script>
                     sessionStorage.setItem('token', '$token');
+                    sessionStorage.setItem('email', '$email');
                     sessionStorage.setItem('username', '$username');
                     window.location.href = '../frontend/dashboard_1.html';
                 </script>";
