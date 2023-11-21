@@ -1,6 +1,8 @@
 body {
   min-height: 100vh;
   min-height: -webkit-fill-available;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 html {
@@ -99,7 +101,7 @@ main {
 }
 
 .vr {
-  height: 1000px;
+  height: 100vh;
 }
 
 .sidebar-w {
@@ -109,6 +111,11 @@ main {
 @media screen and (max-width: 650px) {
   main {
     display: block !important;
+    overflow-y: auto;
+  }
+
+  .vr {
+    height: 0px;
   }
 
   .sidebar-w {
