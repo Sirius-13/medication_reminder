@@ -153,7 +153,7 @@ main {
     cursor: pointer;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 1030px) {
     main {
         display: block !important;
         overflow-y: auto;
@@ -173,7 +173,6 @@ main {
 
     .saveBtn {
         position: relative;
-        left: 38%;
     }
 
     .drawer {
@@ -192,4 +191,10 @@ main {
         display: none !important;
     }
 
+}
+
+@media screen and (max-width: 700px) {
+    .saveBtn {
+        margin-left: 40%;
+    }
 }
