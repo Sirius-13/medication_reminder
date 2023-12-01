@@ -28,7 +28,7 @@ if ($result->num_rows > 0) {
     }
 } 
 
-$default_profile_img = "https://t4.ftcdn.net/jpg/05/49/98/39/360_F_549983970_bRCkYfk0P6PP5fKbMhZMIb07mCJ6esXL.jpg";
+$default_profile_img = "../assets/image/defaultProfileImg.jpg";
 header("Content-type: image/jpeg");
 readfile($default_profile_img);
 
