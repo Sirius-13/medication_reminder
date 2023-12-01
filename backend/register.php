@@ -18,13 +18,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
-    // Check if the email already exists
-    $checkEmailQuery = "SELECT COUNT(*) as count FROM users WHERE Email = '$email'";
-    $result = $conn->query($checkEmailQuery);
+    $checkEmailQuery = "SELECT COUNT(*) as count FROM users WHERE Email = ?";
+    $stmt = $conn->prepare($checkEmailQuery);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
     $count = $result->fetch_assoc()['count'];
 
     if ($count > 0) {
-        // Email already exists, inform the user and redirect back to registration
         echo "<script>
             alert('The email you provided has already been used. Please try again.');
             window.location.href = '../frontend/register.html';
@@ -32,16 +33,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    if($password == $confirm_password) {
+    if ($password == $confirm_password) {
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO users (UserID, Username, Email, PasswordHash) VALUES ('', ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sss", $name, $email, $hashedPassword);
 
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO users (UserID ,Username, Email, PasswordHash) VALUES ('' ,'$name', '$email', '$hashedPassword')";
-
-        if ($conn->query($sql) === TRUE) {
+        if ($stmt->execute()) {
             echo "New record created successfully";
-            
-            $sql1 = "SELECT Username, PasswordHash FROM users WHERE Email = '$email'";
-            $result = $conn->query($sql1);
+            $sql1 = "SELECT Username, PasswordHash FROM users WHERE Email = ?";
+            $stmt = $conn->prepare($sql1);
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
 
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
@@ -49,10 +53,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['token'] = $token;
                 $_SESSION['email'] = $email;
                 $username = $row['Username'];
+                $updateTimestampSQL = "UPDATE users SET LastLoginDate = CURRENT_TIMESTAMP WHERE Email = ?";
+                $stmt = $conn->prepare($updateTimestampSQL);
+                $stmt->bind_param("s", $email);
+                $stmt->execute();
 
-                $updateTimestampSQL = "UPDATE users SET LastLoginDate = CURRENT_TIMESTAMP WHERE Email = '$email'";
-                $conn->query($updateTimestampSQL);
-        
                 echo "<script>
                     sessionStorage.setItem('token', '$token');
                     sessionStorage.setItem('email', '$email');

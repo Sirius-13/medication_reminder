@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         username1.textContent = username;
         profile_edit_username.value = username;
         profile_edit_email.value = email;
-    } else if (username && email && !isDashboardProfile) {
+    } else {
         username1.textContent = username;
     }
 });
