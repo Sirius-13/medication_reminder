@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard-Overview</title>
     <link rel="stylesheet" type="text/css" href="../styles/dashboard_page.css">
+    <link rel="stylesheet" type="text/css" href="../styles/dashboard_1.css">
     <script src="../javascript/fetchUserData.js"></script>
     <script src="../javascript/tokenValidation.js"></script>
     <script src="../javascript/showDropdown.js"></script>
     <script src="../javascript/logout.js"></script>
+    <script src="../javascript/tabNavigation.js"></script>
     <script src="../javascript/bootstrap.bundle.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -37,10 +40,9 @@
             <path
                 d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z" />
         </symbol>
-        <symbol id="people-circle" viewBox="0 0 16 16">
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-            <path fill-rule="evenodd"
-                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+        <symbol id="medicine" viewBox="0 0 16 16">
+            <path
+                d="M1.828 8.9 8.9 1.827a4 4 0 1 1 5.657 5.657l-7.07 7.071A4 4 0 1 1 1.827 8.9Zm9.128.771 2.893-2.893a3 3 0 1 0-4.243-4.242L6.713 5.429z" />
         </symbol>
         <symbol id="grid" viewBox="0 0 16 16">
             <path
@@ -98,7 +100,8 @@
     <main>
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidebar-w">
             <div class="d-flex justify-content-between">
-                <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <a href="dashboard_1.html"
+                    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                     <svg class="bi me-2" width="32" height="32">
                         <use xlink:href="#capsule-pills" />
                     </svg>
@@ -134,9 +137,9 @@
                 <li>
                     <a href="dashboard_3.html" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#table" />
+                            <use xlink:href="#medicine" />
                         </svg>
-                        Timetable
+                        Medicine Info
                     </a>
                 </li>
             </ul>
@@ -161,7 +164,458 @@
                 </div>
             </div>
         </div>
+
         <div class="vr"></div>
+
+        <div class="idance">
+            <div class="schedule content-block">
+                <div class="container">
+                    <h2 data-aos="zoom-in-up" class="aos-init aos-animate mt-3">Schedule</h2>
+
+                    <div class="timetable">
+                        <nav class="nav nav-tabs">
+                            <a class="nav-link tablinks" onclick="openTab(event, 'sun')" id="defaultTab">Sun</a>
+                            <a class="nav-link tablinks" onclick="openTab(event, 'mon')">Mon</a>
+                            <a class="nav-link tablinks" onclick="openTab(event, 'tue')">Tue</a>
+                            <a class="nav-link tablinks" onclick="openTab(event, 'wed')">Wed</a>
+                            <a class="nav-link tablinks" onclick="openTab(event, 'thu')">Thu</a>
+                            <a class="nav-link tablinks" onclick="openTab(event, 'fri')">Fri</a>
+                            <a class="nav-link tablinks" onclick="openTab(event, 'sat')">Sat</a>
+                        </nav>
+
+                        <div class="tab-content tabcontent" id="sun">
+                            <div class="tab-pane show active">
+                                <div class="row">
+
+                                    <!-- Schedule Item 1 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
+                                                    alt="Contemporary Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">4:00pm - 5:00pm</div>
+                                                <div class="timetable-item-name">Contemporary Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content tabcontent" id="mon">
+                            <div class="tab-pane show active">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
+                                                    alt="Contemporary Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">4:00pm - 5:00pm</div>
+                                                <div class="timetable-item-name">Contemporary Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
+                                                    alt="Contemporary Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">4:00pm - 5:00pm</div>
+                                                <div class="timetable-item-name">Contemporary Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
+                                                    alt="Contemporary Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">4:00pm - 5:00pm</div>
+                                                <div class="timetable-item-name">Contemporary Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
+                                                    alt="Contemporary Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">4:00pm - 5:00pm</div>
+                                                <div class="timetable-item-name">Contemporary Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
+                                                    alt="Contemporary Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">4:00pm - 5:00pm</div>
+                                                <div class="timetable-item-name">Contemporary Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
+                                                    alt="Contemporary Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">4:00pm - 5:00pm</div>
+                                                <div class="timetable-item-name">Contemporary Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Schedule Item 1 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
+                                                    alt="Contemporary Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">4:00pm - 5:00pm</div>
+                                                <div class="timetable-item-name">Contemporary Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Schedule Item 2 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/00FFFF/000000"
+                                                    alt="Break Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">5:00pm - 6:00pm</div>
+                                                <div class="timetable-item-name">Break Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Schedule Item 3 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/8A2BE2/000000"
+                                                    alt="Street Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">5:00pm - 6:00pm</div>
+                                                <div class="timetable-item-name">Street Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Schedule Item 4 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/6495ED/000000"
+                                                    alt="Yoga">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">7:00pm - 8:00pm</div>
+                                                <div class="timetable-item-name">Yoga</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Schedule Item 5 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/00FFFF/000000"
+                                                    alt="Stretching">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">6:00pm - 7:00pm</div>
+                                                <div class="timetable-item-name">Stretching</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Schedule Item 6 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/008B8B/000000"
+                                                    alt="Street Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">8:00pm - 9:00pm</div>
+                                                <div class="timetable-item-name">Street Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content tabcontent" id="tue">
+                            <div class="tab-pane show active">
+                                <div class="row">
+
+                                    <!-- Schedule Item 1 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
+                                                    alt="Contemporary Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">4:00pm - 5:00pm</div>
+                                                <div class="timetable-item-name">Contemporary Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Schedule Item 2 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/00FFFF/000000"
+                                                    alt="Break Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">5:00pm - 6:00pm</div>
+                                                <div class="timetable-item-name">Break Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Schedule Item 3 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/8A2BE2/000000"
+                                                    alt="Street Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">5:00pm - 6:00pm</div>
+                                                <div class="timetable-item-name">Street Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Schedule Item 4 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/6495ED/000000"
+                                                    alt="Yoga">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">7:00pm - 8:00pm</div>
+                                                <div class="timetable-item-name">Yoga</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Schedule Item 5 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/00FFFF/000000"
+                                                    alt="Stretching">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">6:00pm - 7:00pm</div>
+                                                <div class="timetable-item-name">Stretching</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content tabcontent" id="wed">
+                            <div class="tab-pane show active">
+                                <div class="row">
+
+                                    <!-- Schedule Item 1 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
+                                                    alt="Contemporary Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">4:00pm - 5:00pm</div>
+                                                <div class="timetable-item-name">Contemporary Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Schedule Item 2 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/00FFFF/000000"
+                                                    alt="Break Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">5:00pm - 6:00pm</div>
+                                                <div class="timetable-item-name">Break Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Schedule Item 3 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/8A2BE2/000000"
+                                                    alt="Street Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">5:00pm - 6:00pm</div>
+                                                <div class="timetable-item-name">Street Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Schedule Item 4 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/6495ED/000000"
+                                                    alt="Yoga">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">7:00pm - 8:00pm</div>
+                                                <div class="timetable-item-name">Yoga</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content tabcontent" id="thu">
+                            <div class="tab-pane show active">
+                                <div class="row">
+
+                                    <!-- Schedule Item 1 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
+                                                    alt="Contemporary Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">4:00pm - 5:00pm</div>
+                                                <div class="timetable-item-name">Contemporary Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Schedule Item 2 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/00FFFF/000000"
+                                                    alt="Break Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">5:00pm - 6:00pm</div>
+                                                <div class="timetable-item-name">Break Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Schedule Item 3 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/8A2BE2/000000"
+                                                    alt="Street Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">5:00pm - 6:00pm</div>
+                                                <div class="timetable-item-name">Street Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content tabcontent" id="fri">
+                            <div class="tab-pane show active">
+                                <div class="row">
+
+                                    <!-- Schedule Item 1 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
+                                                    alt="Contemporary Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">4:00pm - 5:00pm</div>
+                                                <div class="timetable-item-name">Contemporary Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Schedule Item 2 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/00FFFF/000000"
+                                                    alt="Break Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">5:00pm - 6:00pm</div>
+                                                <div class="timetable-item-name">Break Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content tabcontent" id="sat">
+                            <div class="tab-pane show active">
+                                <div class="row">
+
+                                    <!-- Schedule Item 1 -->
+                                    <div class="col-md-6">
+                                        <div class="timetable-item">
+                                            <div class="timetable-item-img">
+                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
+                                                    alt="Contemporary Dance">
+                                            </div>
+                                            <div class="timetable-item-main">
+                                                <div class="timetable-item-time">4:00pm - 5:00pm</div>
+                                                <div class="timetable-item-name">Contemporary Dance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
 </body>

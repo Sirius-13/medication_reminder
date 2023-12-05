@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard-Timetable</title>
+    <title>Dashboard-Medicine Info</title>
     <link rel="stylesheet" type="text/css" href="../styles/dashboard_page.css">
     <script src="../javascript/fetchUserData.js"></script>
     <script src="../javascript/tokenValidation.js"></script>
@@ -37,10 +37,9 @@
             <path
                 d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z" />
         </symbol>
-        <symbol id="people-circle" viewBox="0 0 16 16">
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-            <path fill-rule="evenodd"
-                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+        <symbol id="medicine" viewBox="0 0 16 16">
+            <path
+                d="M1.828 8.9 8.9 1.827a4 4 0 1 1 5.657 5.657l-7.07 7.071A4 4 0 1 1 1.827 8.9Zm9.128.771 2.893-2.893a3 3 0 1 0-4.243-4.242L6.713 5.429z" />
         </symbol>
         <symbol id="grid" viewBox="0 0 16 16">
             <path
@@ -98,7 +97,8 @@
     <main>
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidebar-w">
             <div class="d-flex justify-content-between">
-                <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <a href="dashboard_1.html"
+                    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                     <svg class="bi me-2" width="32" height="32">
                         <use xlink:href="#capsule-pills" />
                     </svg>
@@ -134,9 +134,9 @@
                 <li>
                     <a href="dashboard_3.html" class="nav-link active">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#table" />
+                            <use xlink:href="#medicine" />
                         </svg>
-                        Timetable
+                        Medicine Info
                     </a>
                 </li>
             </ul>
