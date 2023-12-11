@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard-Medicine Info</title>
     <link rel="stylesheet" type="text/css" href="../styles/dashboard_page.css">
+    <link rel="stylesheet" type="text/css" href="../styles/dashboard_3.css">
     <script src="../javascript/fetchUserData.js"></script>
     <script src="../javascript/tokenValidation.js"></script>
     <script src="../javascript/logout.js"></script>
     <script src="../javascript/showDropdown.js"></script>
+    <script src="../javascript/getCurrentTime.js"></script>
     <script src="../javascript/bootstrap.bundle.min.js"></script>
     <link rel="icon" type="image/-icon" href="../assets/image/medical_icon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -162,7 +164,96 @@
                 </div>
             </div>
         </div>
+
         <div class="vr"></div>
+
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-baseline">
+                <h2 data-aos="zoom-in-up" class="aos-init aos-animate mt-3">Medicine Info</h2>
+                <span class="fw-bold" id="clock"></span>
+            </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">New Medicine</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post">
+
+                                <div class="mb-3">
+                                    <label for="medicine-name" class="col-form-label">Medicine Name</label>
+                                    <input type="text" class="form-control" id="medicine-name" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="medicine-type" class="col-form-label">Medicine Type</label>
+                                    <select class="form-select" aria-label=".form-select-sm example" required>
+                                        <option selected disabled hidden>Please select your medicine type</option>
+                                        <option value="1">Liquid/Syrup</option>
+                                        <option value="2">Tablet</option>
+                                        <option value="3">Capsule</option>
+                                        <option value="4">Lozenges</option>
+                                        <option value="5">Spray</option>
+                                        <option value="6">Drop</option>
+                                        <option value="7">Topical Medicine</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="time-and-schedule" class="col-form-label">Reminder Times</label>
+                                    <input type="time" class="form-control" id="appt" name="appt">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="frequency" class="col-form-label">Frequency</label>
+                                    <select class="form-select" aria-label=".form-select-sm example" required>
+                                        <option selected disabled hidden>Please select your frequency</option>
+                                        <option value="1">Once</option>
+                                        <option value="2">Everday</option>
+                                        <option value="3">Custom</option>
+                                    </select>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Add Medicine</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-info btn-lg btn-block mt-lg-2 w-100" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" data-bs-whatever="@mdo">New
+                Medicine</button>
+
+            <div class="container mt-lg-4">
+                <div class="row">
+                    <div class="col-md text-center">
+                        <img src="https://via.placeholder.com/200x150/000000/FFFFFF/" alt="">
+                        <h1>Hello World</h1>
+                        <p>Bootstrap grid</p>
+                    </div>
+                    <div class="col-md text-center">
+                        <img src="https://via.placeholder.com/200x150/000000/FFFFFF/" alt="">
+                        <h1>Hello World</h1>
+                        <p>Bootstrap grid</p>
+                    </div>
+                    <div class="col-md text-center">
+                        <img src="https://via.placeholder.com/200x150/000000/FFFFFF/" alt="">
+                        <h1>Hello World</h1>
+                        <p>Bootstrap grid</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
 </body>

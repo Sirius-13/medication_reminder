@@ -31,16 +31,6 @@ idance .timetable {
     display: block;
 }
 
-/* .timetable {
-    min-width: 1300px;
-} */
-
-/* @media (max-width: 1535px) {
-    .timetable {
-        min-width: 0;
-    }
-} */
-
 @media (min-width: 768px) {
     .idance .timetable-item {
         display: -webkit-box;
