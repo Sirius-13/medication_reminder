@@ -11,6 +11,7 @@
     <script src="../javascript/tokenValidation.js"></script>
     <script src="../javascript/logout.js"></script>
     <script src="../javascript/showDropdown.js"></script>
+    <script src="../javascript/displayCheckbox.js"></script>
     <script src="../javascript/getCurrentTime.js"></script>
     <script src="../javascript/bootstrap.bundle.min.js"></script>
     <link rel="icon" type="image/-icon" href="../assets/image/medical_icon.png">
@@ -210,12 +211,51 @@
 
                                 <div class="mb-3">
                                     <label for="frequency" class="col-form-label">Frequency</label>
-                                    <select class="form-select" aria-label=".form-select-sm example" required>
+                                    <select class="form-select" aria-label=".form-select-sm example"
+                                        id="selectFrequency" required>
                                         <option selected disabled hidden>Please select your frequency</option>
                                         <option value="1">Once</option>
-                                        <option value="2">Everday</option>
+                                        <option value="2">Everyday</option>
                                         <option value="3">Custom</option>
                                     </select>
+
+                                    <div id="customReminderSelections" class="mb-3 border p-2 d-none">
+                                        <div class="row">
+                                            <div class="col">
+                                                <input type="checkbox" id="option1" name="sunday" value="sunday">
+                                                <label for="option1">Sunday</label>
+                                            </div>
+                                            <div class="col">
+                                                <input type="checkbox" id="option2" name="monday" value="monday">
+                                                <label for="option2">Monday</label><br>
+                                            </div>
+                                            <div class="col">
+                                                <input type="checkbox" id="option3" name="tuesday" value="tuesday">
+                                                <label for="option3">Tuesday</label><br>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <input type="checkbox" id="option4" name="wednesday" value="wednesday">
+                                                <label for="option4">Wednesday</label>
+                                            </div>
+                                            <div class="col">
+                                                <input type="checkbox" id="option5" name="thursday" value="thursday">
+                                                <label for="option5">Thursday</label>
+                                            </div>
+                                            <div class="col">
+                                                <input type="checkbox" id="option6" name="friday" value="friday">
+                                                <label for="option6">Friday</label>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <input type="checkbox" id="option7" name="saturday" value="saturday">
+                                                <label for="option7">Saturday</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="modal-footer">
