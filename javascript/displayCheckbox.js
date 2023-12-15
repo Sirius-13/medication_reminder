@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('selectFrequency').addEventListener('change', function () {
+    document.getElementById('frequency').addEventListener('change', function () {
         var radioSelections = document.getElementById('customReminderSelections');
         var selectedOption = this.value;
 
-        if (selectedOption === '3') {
+        if (selectedOption === 'Custom') {
             radioSelections.classList.remove('d-none')
             radioSelections.style.display = ' block';
         } else {
