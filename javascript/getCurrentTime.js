@@ -3,14 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function clock() {
         var date = new Date();
-        var utcString = date.toUTCString();
+        var localTimeString = date.toLocaleString();
 
-        var parts = utcString.split(' ');
-        var filteredParts = parts.filter(part => part !== 'GMT');
-
-        var filteredString = filteredParts.join(' ');
-
-        clockElement.textContent = filteredString;
+        clockElement.textContent = localTimeString;
     }
     setInterval(clock, 1000);
 });

@@ -13,7 +13,7 @@ $(document).ready(function () {
                     var newRow = $('<div class="col-md-6 mb-3">' +
                         '<div class="card">' +
                         '<div class="card-body">' +
-                        '<p class="card-title fs-4 medicine-name"></p>' +
+                        '<p class="card-title fs-4 fw-bold medicine-name"></p>' +
                         '<p class="card-text medicine-type"></p>' +
                         '<p class="card-text reminder-time"></p>' +
                         '<p class="card-text date-range"></p>' +

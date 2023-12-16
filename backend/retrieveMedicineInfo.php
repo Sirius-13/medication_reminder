@@ -17,14 +17,13 @@ if ($conn->connect_error) {
 $sql = "SELECT * FROM medicine_details WHERE Email = '$email'";
 $result = $conn->query($sql);
 
-$displayMedicineInfo = array(); // Initialize an array to store all rows
+$displayMedicineInfo = array();
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $displayMedicineInfo[] = $row; // Store each row in the array
+        $displayMedicineInfo[] = $row;
     }
 
-    // Output the data as JSON
     header('Content-Type: application/json');
     echo json_encode($displayMedicineInfo);
 } else {

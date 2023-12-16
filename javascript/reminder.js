@@ -1,33 +1,57 @@
-function scheduleNotifications(medicineData) {
-    // Parse the JSON data
-    const data = JSON.parse(medicineData);
+document.addEventListener('DOMContentLoaded', function () {
+    // Function to retrieve medication details
+    function fetchMedicationDetails() {
+        // Use AJAX to fetch data from the PHP script
+        $.ajax({
+            url: '../backend/retrieveMedicineInfo.php',
+            method: 'GET',
+            success: function (response) {
+                handleMedicationDetails(response);
+            },
+            error: function () {
+                console.error('Error fetching medication details.');
+            }
+        });
+    }
 
-    // Extract required values
-    const days = data;
+    function handleMedicationDetails(data) {
 
-    // Schedule notifications for each day
-    days.forEach((day) => {
-        const date = new Date();
-        const dayOfWeek = date.getDay(); // Get the current day of the week (0-6)
+        data.forEach(function (medication) {
+            var reminderTimes = medication.ReminderTimes.split(',');
 
-        // Check if the current day matches the scheduled day
-        if (dayOfWeek === getDayNumber(day)) {
-            const notification = new Notification('Medication Reminder', {
-                body: `Time to take your medication!`,
-                icon: 'path_to_icon.png' // Add the path to your notification icon
+            reminderTimes.forEach(function (time) {
+                var notificationTime = new Date(medication.StartDate + ' ' + time);
+
+                if (notificationTime > new Date()) {
+                    setTimeout(function () {
+                        showNotification('Medication Reminder', medication.MedicineName + ' - Time to take your medication!');
+                    }, notificationTime - new Date());
+                }
             });
+        });
+    }
 
-            // You can add more configurations or actions to the notification
-            // notification.onclick = function() { /* Do something on click */ };
+    function showNotification(title, body) {
+        if (Notification.permission === 'granted') {
+            var notification = new Notification(title, { body: body });
+
+            notification.onclick = function () {
+            };
+        } else if (Notification.permission !== 'denied') {
+            Notification.requestPermission().then(function (permission) {
+                if (permission === 'granted') {
+                    showNotification(title, body);
+                }
+            });
         }
-    });
-}
+    }
 
-// Function to convert day name to number (0-6)
-function getDayNumber(dayName) {
-    const daysOfWeek = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-    return daysOfWeek.indexOf(dayName.toLowerCase());
-}
-
-// Call the function with your JSON data
-scheduleNotifications('["sunday","wednesday","thursday","saturday"]');
+    if (!('Notification' in window)) {
+        console.log('This browser does not support notifications.');
+    } else {
+        if (Notification.permission !== 'granted') {
+            Notification.requestPermission();
+        }
+        fetchMedicationDetails();
+    }
+});
