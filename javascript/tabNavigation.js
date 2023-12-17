@@ -1,11 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Get the current day index (0 for Sunday, 1 for Monday, ... 6 for Saturday)
     var currentDayIndex = new Date().getDay();
 
-    // Array of tab IDs corresponding to days
     var tabIDs = ['sunTab', 'monTab', 'tueTab', 'wedTab', 'thuTab', 'friTab', 'satTab'];
 
-    // Hide all tab contents by default
     var tabcontent = document.getElementsByClassName("tabcontent");
     for (var i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";

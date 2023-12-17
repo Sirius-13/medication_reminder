@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $medicineName = $_POST['medicine-name'];
     $medicineType = $_POST['medicine-type'];
+    $capSize = $_POST['cap-size'];
     $reminderTimes = $_POST['reminder-times'];
     $startDate = $_POST['start-date'];
     $endDate = $_POST['end-date'];
@@ -37,10 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $selectedDaysJSON = json_encode($selectedDays);
 
-    $sql = "INSERT INTO medicine_details (MedicineID, Email, MedicineName, MedicineType, ReminderTimes, StartDate, EndDate, Frequency, CustomReminderTimes)
-    VALUES ('', '$user_email', '$medicineName', '$medicineType', '$reminderTimes', '$startDate', '$endDate', '$frequency', '$selectedDaysJSON')";
+    $sql = "INSERT INTO medicine_details (MedicineID, Email, MedicineName, MedicineType, CapSize, ReminderTimes, StartDate, EndDate, Frequency, CustomReminderTimes)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-    if ($conn->query($sql) === TRUE) {
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssssssssss", $medicineID, $user_email, $medicineName, $medicineType, $capSize, $reminderTimes, $startDate, $endDate, $frequency, $selectedDaysJSON);
+
+    if ($stmt->execute()) {
         echo "New record created successfully";
         echo "<script>
                     window.location.href = '../frontend/dashboard_3.html';
@@ -48,7 +52,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+
+    $stmt->close();
 }
+
 $conn->close();
 exit();
 ?>

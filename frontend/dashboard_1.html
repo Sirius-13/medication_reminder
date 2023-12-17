@@ -7,12 +7,14 @@
     <title>Dashboard-Overview</title>
     <link rel="stylesheet" type="text/css" href="../styles/dashboard_page.css">
     <link rel="stylesheet" type="text/css" href="../styles/dashboard_1.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../javascript/fetchUserData.js"></script>
     <script src="../javascript/tokenValidation.js"></script>
     <script src="../javascript/showDropdown.js"></script>
     <script src="../javascript/getCurrentTime.js"></script>
     <script src="../javascript/logout.js"></script>
     <script src="../javascript/tabNavigation.js"></script>
+    <script src="../javascript/displayOverview.js"></script>
     <script src="../javascript/bootstrap.bundle.min.js"></script>
     <link rel="icon" type="image/-icon" href="../assets/image/medical_icon.png">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
@@ -188,152 +190,54 @@
                             <a class="nav-link tablinks" onclick="openTab(event, 'sat')" id="satTab">Sat</a>
                         </nav>
 
-                        <div class="tab-content tabcontent d-none" id="sun">
+                        <div class="tab-content tabcontent" id="sun">
                             <div class="tab-pane show active">
-                                <div class="row">
-
-                                    <div class="col-md-6">
-                                        <div class="timetable-item">
-                                            <div class="timetable-item-img">
-                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000" alt="">
-                                            </div>
-                                            <div class="timetable-item-main">
-                                                <div class="timetable-item-time"></div>
-                                                <div class="timetable-item-name"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                <div class="row overview-info">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="tab-content tabcontent d-none" id="mon">
+                        <div class="tab-content tabcontent" id="mon">
                             <div class="tab-pane show active">
-                                <div class="row">
-
-                                    <div class="col-md-6">
-                                        <div class="timetable-item">
-                                            <div class="timetable-item-img">
-                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
-                                                    alt="Contemporary Dance">
-                                            </div>
-                                            <div class="timetable-item-main">
-                                                <div class="timetable-item-time"></div>
-                                                <div class="timetable-item-name"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                <div class="row overview-info">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="tab-content tabcontent d-none" id="tue">
+                        <div class="tab-content tabcontent" id="tue">
                             <div class="tab-pane show active">
-                                <div class="row">
-
-                                    <div class="col-md-6">
-                                        <div class="timetable-item">
-                                            <div class="timetable-item-img">
-                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
-                                                    alt="Contemporary Dance">
-                                            </div>
-                                            <div class="timetable-item-main">
-                                                <div class="timetable-item-time"></div>
-                                                <div class="timetable-item-name"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                <div class="row overview-info">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="tab-content tabcontent d-none" id="wed">
+                        <div class="tab-content tabcontent" id="wed">
                             <div class="tab-pane show active">
-                                <div class="row">
-
-                                    <div class="col-md-6">
-                                        <div class="timetable-item">
-                                            <div class="timetable-item-img">
-                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
-                                                    alt="Contemporary Dance">
-                                            </div>
-                                            <div class="timetable-item-main">
-                                                <div class="timetable-item-time"></div>
-                                                <div class="timetable-item-name"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                <div class="row overview-info">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="tab-content tabcontent d-none" id="thu">
+                        <div class="tab-content tabcontent" id="thu">
                             <div class="tab-pane show active">
-                                <div class="row">
-
-                                    <div class="col-md-6">
-                                        <div class="timetable-item">
-                                            <div class="timetable-item-img">
-                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
-                                                    alt="Contemporary Dance">
-                                            </div>
-                                            <div class="timetable-item-main">
-                                                <div class="timetable-item-time"></div>
-                                                <div class="timetable-item-name"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                <div class="row overview-info">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="tab-content tabcontent d-none" id="fri">
+                        <div class="tab-content tabcontent" id="fri">
                             <div class="tab-pane show active">
-                                <div class="row">
-
-                                    <div class="col-md-6">
-                                        <div class="timetable-item">
-                                            <div class="timetable-item-img">
-                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
-                                                    alt="Contemporary Dance">
-                                            </div>
-                                            <div class="timetable-item-main">
-                                                <div class="timetable-item-time"></div>
-                                                <div class="timetable-item-name"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                <div class="row overview-info">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="tab-content tabcontent d-none" id="sat">
+                        <div class="tab-content tabcontent" id="sat">
                             <div class="tab-pane show active">
-                                <div class="row">
-
-                                    <div class="col-md-6">
-                                        <div class="timetable-item">
-                                            <div class="timetable-item-img">
-                                                <img src="https://www.bootdey.com/image/100x80/FFB6C1/000000"
-                                                    alt="Contemporary Dance">
-                                            </div>
-                                            <div class="timetable-item-main">
-                                                <div class="timetable-item-time"></div>
-                                                <div class="timetable-item-name"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                <div class="row overview-info">
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

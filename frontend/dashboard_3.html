@@ -206,22 +206,9 @@
                                     </select>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col mb-3">
-                                        <label for="start-date" class="col-form-label">Start Date</label>
-                                        <input type="date" class="form-control" id="start-date" name="start-date"
-                                            required>
-                                    </div>
-
-                                    <div class="col mb-3">
-                                        <label for="end-date" class="col-form-label">End Date</label>
-                                        <input type="date" class="form-control" id="end-date" name="end-date" required>
-                                    </div>
-                                </div>
-
                                 <div class="mb-3">
-                                    <label for="time-and-schedule" class="col-form-label">Reminder Times</label>
-                                    <input type="time" class="form-control" id="appt" name="reminder-times">
+                                    <label for="cap-size" class="col-form-label">Cap Size</label>
+                                    <input type="text" class="form-control" name="cap-size" id="cap-size" required>
                                 </div>
 
                                 <div class="mb-3">
@@ -274,6 +261,24 @@
                                     </div>
                                 </div>
 
+                                <div class="row">
+                                    <div class="col mb-3">
+                                        <label for="start-date" class="col-form-label">Start Date</label>
+                                        <input type="date" class="form-control" id="start-date" name="start-date"
+                                            required>
+                                    </div>
+
+                                    <div class="col mb-3">
+                                        <label for="end-date" class="col-form-label">End Date</label>
+                                        <input type="date" class="form-control" id="end-date" name="end-date" required>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="time-and-schedule" class="col-form-label">Reminder Times</label>
+                                    <input type="time" class="form-control" id="appt" name="reminder-times">
+                                </div>
+
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Close</button>
@@ -288,16 +293,6 @@
             <button type="button" class="btn btn-info btn-lg btn-block mt-lg-2 w-100" data-bs-toggle="modal"
                 data-bs-target="#exampleModal" data-bs-whatever="@mdo">New
                 Medicine</button>
-
-            <!-- <div class="container mt-lg-4">
-                <div class="row">
-                    <div class="col-md text-center">
-                        <img src="https://via.placeholder.com/200x150/000000/FFFFFF/" alt="">
-                        <h2 id="medicineName"></h2>
-                        <p id="medicineType"></p>
-                    </div>
-                </div>
-            </div> -->
 
             <div class="container mt-lg-4">
                 <div class="row" id="medicineContainer">
