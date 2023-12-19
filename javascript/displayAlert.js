@@ -27,3 +27,25 @@ function showAlertDialog() {
 function closeAlertDialog() {
     document.getElementById('alertDialog').style.display = 'none';
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    var frequencySelect = document.getElementById('frequency');
+    var customReminderSection = document.getElementById('customReminderSelections');
+    var setReminderForm = document.querySelector('form');
+
+    function validateCheckboxes(event) {
+        if (frequencySelect.value === 'Custom') {
+            var checkboxes = customReminderSection.querySelectorAll('input[type="checkbox"]');
+            var atLeastOneChecked = Array.from(checkboxes).some(function (checkbox) {
+                return checkbox.checked;
+            });
+
+            if (!atLeastOneChecked) {
+                event.preventDefault();
+                alert('Please select at least one day.');
+            }
+        }
+    }
+
+    setReminderForm.addEventListener('submit', validateCheckboxes);
+});

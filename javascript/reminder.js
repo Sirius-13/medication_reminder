@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
             success: function (response) {
                 if (Array.isArray(response) && response.length > 0) {
                     handleMedicationDetails(response);
-                    console.log(response);
+                    // console.log(response);
                 } else {
                     console.log('No medication data available.');
                 }
@@ -26,13 +26,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 reminderTimes.forEach(function (time) {
                     var notificationTime = new Date(medication.StartDate + ' ' + time);
-                    console.log(reminderTimes)
+                    // console.log(reminderTimes)
 
-                    if (notificationTime > new Date()) {
-                        console.log('still working')
-                    } else {
-                        console.log('not working')
-                    }
+                    // if (notificationTime > new Date()) {
+                    //     console.log('still working')
+                    // } else {
+                    //     console.log('not working')
+                    // }
 
                     if (notificationTime > new Date()) {
                         setTimeout(function () {
@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 var currentDate = new Date();
                 var currentDay = currentDate.getDay();
 
-                console.log(selectedDays);
-                console.log(currentDay);
+                // console.log(selectedDays);
+                // console.log(currentDay);
 
                 var dayMap = {
                     'sunday': 0,
@@ -75,8 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         notificationTime.setHours(hours);
                         notificationTime.setMinutes(minutes);
 
-                        console.log(reminderTimes);
-                        console.log(notificationTime);
+                        // console.log(reminderTimes);
+                        // console.log(notificationTime);
 
                         if (notificationTime > new Date()) {
                             notifications.push({

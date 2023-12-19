@@ -13,6 +13,7 @@
     <script src="../javascript/logout.js"></script>
     <script src="../javascript/showDropdown.js"></script>
     <script src="../javascript/displayCheckbox.js"></script>
+    <script src="../javascript/displayAlert.js"></script>
     <script src="../javascript/getCurrentTime.js"></script>
     <script src="../javascript/reminder.js"></script>
     <script src="../javascript/displayMedincineInfo.js"></script>
@@ -184,7 +185,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="../backend/setReminder.php">
+                            <form id="setReminder" method="post" action="../backend/setReminder.php">
                                 <div class="mb-3">
                                     <label for="medicine-name" class="col-form-label">Medicine Name</label>
                                     <input type="text" class="form-control" name="medicine-name" id="medicine-name"
@@ -216,7 +217,7 @@
                                     <select class="form-select" aria-label=".form-select-sm example" id="frequency"
                                         name="frequency" required>
                                         <option selected disabled hidden>Please select your frequency</option>
-                                        <option value="Once">Once</option>
+                                        <!-- <option value="Once">Once</option> -->
                                         <option value="Everyday">Everyday</option>
                                         <option value="Custom">Custom</option>
                                     </select>
@@ -250,7 +251,6 @@
                                                 <input type="checkbox" id="option6" name="friday" value="friday">
                                                 <label for="option6">Friday</label>
                                             </div>
-
                                         </div>
                                         <div class="row">
                                             <div class="col">
@@ -276,7 +276,7 @@
 
                                 <div class="mb-3">
                                     <label for="time-and-schedule" class="col-form-label">Reminder Times</label>
-                                    <input type="time" class="form-control" id="appt" name="reminder-times">
+                                    <input type="time" class="form-control" id="reminder-times" name="reminder-times">
                                 </div>
 
                                 <div class="modal-footer">
@@ -294,7 +294,7 @@
                 data-bs-target="#exampleModal" data-bs-whatever="@mdo">New
                 Medicine</button>
 
-            <div class="container mt-lg-4">
+            <div class="container mt-lg-2">
                 <div class="row" id="medicineContainer">
                 </div>
             </div>

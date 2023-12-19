@@ -38,11 +38,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $selectedDaysJSON = json_encode($selectedDays);
 
-    $sql = "INSERT INTO medicine_details (MedicineID, Email, MedicineName, MedicineType, CapSize, ReminderTimes, StartDate, EndDate, Frequency, CustomReminderTimes)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    if(($frequency == "Everyday")) {
+        $dayOfWeek = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+        $encodedDayOfWeek = json_encode($dayOfWeek);
 
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssssssss", $medicineID, $user_email, $medicineName, $medicineType, $capSize, $reminderTimes, $startDate, $endDate, $frequency, $selectedDaysJSON);
+        $sql = "INSERT INTO medicine_details (MedicineID, Email, MedicineName, MedicineType, CapSize, ReminderTimes, StartDate, EndDate, Frequency, CustomReminderTimes)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssssssssss", $medicineID, $user_email, $medicineName, $medicineType, $capSize, $reminderTimes, $startDate, $endDate, $frequency, $encodedDayOfWeek);
+    } else {
+        $sql = "INSERT INTO medicine_details (MedicineID, Email, MedicineName, MedicineType, CapSize, ReminderTimes, StartDate, EndDate, Frequency, CustomReminderTimes)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssssssssss", $medicineID, $user_email, $medicineName, $medicineType, $capSize, $reminderTimes, $startDate, $endDate, $frequency, $selectedDaysJSON);
+    }
 
     if ($stmt->execute()) {
         echo "New record created successfully";

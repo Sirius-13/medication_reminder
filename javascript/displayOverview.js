@@ -13,41 +13,50 @@ $(document).ready(function () {
         tabContent.empty();
 
         $.ajax({
-            url: '../backend/retrieveDay.php',
+            url: '../backend/retrieveMedicineInfo.php',
             method: 'GET',
             success: function (response) {
-                // console.log(response)
                 if (Array.isArray(response) && response.length > 0) {
                     var tabContent = $('#' + tabID).find('.overview-info');
+                    var currentDay = getCurrentDay();
+                    var dayOfWeek = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'][currentDay];
 
                     response.forEach(function (medicine) {
-                        var newRow = $('<div class="col-md-6">' +
-                            '<div class="timetable-item">' +
-                            '<div class="timetable-item-main">' +
-                            '<div class="med-name fw-bold">' +
-                            '</div>' +
-                            '<div class="med-type mt-1">' +
-                            '</div>' +
-                            '<div class="row mt-1">' +
-                            '<div class="col-md-6">' +
-                            '<div class="med-time">' +
-                            '</div>' +
-                            '</div>' +
-                            '<div class="col-md-6">' +
-                            '<div class="med-cap-size">' +
-                            '</div>' +
-                            '</div>' +
-                            '</div>' +
-                            '</div>' +
-                            '</div>' +
-                            '</div>');
+                        var reminderTimes = JSON.parse(medicine.CustomReminderTimes);
 
-                        newRow.find('.med-name').text(medicine.MedicineName);
-                        newRow.find('.med-type').text("Type: " + medicine.MedicineType);
-                        newRow.find('.med-cap-size').text("Cap Size: " + medicine.CapSize);
-                        newRow.find('.med-time').text('Time: ' + formatTimeToHHMM(medicine.ReminderTimes));
+                        for (var i = 0; i < reminderTimes.length; i++) {
+                            var reminderDay = reminderTimes[i];
 
-                        tabContent.append(newRow);
+                            if (reminderDay === dayOfWeek) {
+                                var newRow = $('<div class="col-md-6">' +
+                                    '<div class="timetable-item mt-3 mb-3">' +
+                                    '<div class="timetable-item-main">' +
+                                    '<div class="med-name fw-bold">' +
+                                    '</div>' +
+                                    '<div class="med-type mt-1">' +
+                                    '</div>' +
+                                    '<div class="row mt-1">' +
+                                    '<div class="col-md-6">' +
+                                    '<div class="med-time">' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '<div class="col-md-6">' +
+                                    '<div class="med-cap-size">' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>');
+
+                                newRow.find('.med-name').text(medicine.MedicineName);
+                                newRow.find('.med-type').text("Type: " + medicine.MedicineType);
+                                newRow.find('.med-cap-size').text("Cap Size: " + medicine.CapSize);
+                                newRow.find('.med-time').text('Time: ' + formatTimeToHHMM(medicine.ReminderTimes));
+
+                                tabContent.append(newRow);
+                            }
+                        }
                     });
                 } else {
                     $('#' + tabID).html('<div class="text-center fw-bold fs-5 mt-3">No data found</div>');
