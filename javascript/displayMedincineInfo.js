@@ -162,6 +162,14 @@ function createModal(medicineData) {
     var updateButton = modal.find('.updateBtn');
 
     updateButton.on('click', function () {
+        var checkedDays = [];
+
+        modal.find('#customReminderSelections input[type="checkbox"]').each(function () {
+            if ($(this).is(':checked')) {
+                checkedDays.push($(this).attr('name'));
+            }
+        });
+
         $.ajax({
             url: '../backend/updateMedicineInfo.php',
             method: 'POST',
@@ -173,7 +181,7 @@ function createModal(medicineData) {
                 startDate: modal.find('#start-date').val(),
                 endDate: modal.find('#end-date').val(),
                 reminderTimes: modal.find('#reminder-times').val(),
-                customReminderSelections: modal.find('#customReminderSelections').val(),
+                customReminderSelections: JSON.stringify(checkedDays),
                 MedID: medicineData.MedicineID
             },
             success: function (response) {
