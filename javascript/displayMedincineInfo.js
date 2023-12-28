@@ -19,7 +19,7 @@ function createModal(medicineData) {
         '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>' +
         '</div>' +
         '<div class="modal-body">' +
-        '<form id="setReminder" method="post" action="../backend/setReminder.php">' +
+        '<form id="editMedicineInfo">' +
         '<div class="mb-3">' +
         '<label for="medicine-name" class="col-form-label">Medicine Name</label>' +
         '<input type="text" class="form-control" name="medicine-name" id="medicine-name" required>' +
@@ -101,7 +101,7 @@ function createModal(medicineData) {
         '</div>' +
         '<div class="modal-footer">' +
         '<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>' +
-        '<button type="submit" class="btn btn-primary">Update Medicine</button>' +
+        '<button type="submit" class="btn btn-primary updateBtn">Update Medicine</button>' +
         '</div>' +
         '</form>' +
         '</div>' +
@@ -158,6 +158,32 @@ function createModal(medicineData) {
             modal.find('input[name="' + day + '"]').prop('checked', true);
         });
     }
+
+    var updateButton = modal.find('.updateBtn');
+
+    updateButton.on('click', function () {
+        $.ajax({
+            url: '../backend/updateMedicineInfo.php',
+            method: 'POST',
+            data: {
+                medicineName: modal.find('#medicine-name').val(),
+                medicineType: modal.find('#medicine-type').val(),
+                capSize: modal.find('#cap-size').val(),
+                frequency: modal.find('#frequency').val(),
+                startDate: modal.find('#start-date').val(),
+                endDate: modal.find('#end-date').val(),
+                reminderTimes: modal.find('#reminder-times').val(),
+                customReminderSelections: modal.find('#customReminderSelections').val(),
+                MedID: medicineData.MedicineID
+            },
+            success: function (response) {
+                console.log('Medicine updated successfully');
+            },
+            error: function (error) {
+                console.error('Error updating medicine:', error);
+            }
+        });
+    });
 
     $('body').append(modal);
 }

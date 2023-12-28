@@ -182,13 +182,20 @@
 
                     <div class="timetable">
                         <nav class="nav nav-tabs">
-                            <a class="nav-link tablinks" onclick="openTab(event, 'sun')" id="sunTab">Sun</a>
-                            <a class="nav-link tablinks" onclick="openTab(event, 'mon')" id="monTab">Mon</a>
-                            <a class="nav-link tablinks" onclick="openTab(event, 'tue')" id="tueTab">Tue</a>
-                            <a class="nav-link tablinks" onclick="openTab(event, 'wed')" id="wedTab">Wed</a>
-                            <a class="nav-link tablinks" onclick="openTab(event, 'thu')" id="thuTab">Thu</a>
-                            <a class="nav-link tablinks" onclick="openTab(event, 'fri')" id="friTab">Fri</a>
-                            <a class="nav-link tablinks" onclick="openTab(event, 'sat')" id="satTab">Sat</a>
+                            <a class="nav-link tablinks" onclick="openTab(event, 'sun')" id="sunTab"
+                                data-day="sunday">Sun</a>
+                            <a class="nav-link tablinks" onclick="openTab(event, 'mon')" id="monTab"
+                                data-day="monday">Mon</a>
+                            <a class="nav-link tablinks" onclick="openTab(event, 'tue')" id="tueTab"
+                                data-day="tuesday">Tue</a>
+                            <a class="nav-link tablinks" onclick="openTab(event, 'wed')" id="wedTab"
+                                data-day="wednesday">Wed</a>
+                            <a class="nav-link tablinks" onclick="openTab(event, 'thu')" id="thuTab"
+                                data-day="thursday">Thu</a>
+                            <a class="nav-link tablinks" onclick="openTab(event, 'fri')" id="friTab"
+                                data-day="friday">Fri</a>
+                            <a class="nav-link tablinks" onclick="openTab(event, 'sat')" id="satTab"
+                                data-day="saturday">Sat</a>
                         </nav>
 
                         <div class="tab-content tabcontent" id="sun">
