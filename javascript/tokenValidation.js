@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentPath = window.location.pathname;
     const isDashboard = currentPath.includes('dashboard_1.html');
     const isDashboard2 = currentPath.includes('dashboard_2.html');
-    const isDashboard3 = currentPath.includes('dashboard_3.html');
     const isDashboardProfile = currentPath.includes('profile.html');
     const shouldRedirectToDashboard = window.location.search.includes('redirect=true');
 
@@ -12,8 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = '../frontend/dashboard_1.html?redirect=true';
         } else if (isDashboard2) {
             window.location.href = '../frontend/dashboard_2.html?redirect=true';
-        } else if (isDashboard3) {
-            window.location.href = '../frontend/dashboard_3.html?redirect=true';
         } else if (isDashboardProfile) {
             window.location.href = '../frontend/profile.html?redirect=true';
         }
@@ -29,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
 //     const currentPath = window.location.pathname;
 //     const isDashboard = currentPath.includes('dashboard_1.html');
 //     const isDashboard2 = currentPath.includes('dashboard_2.html');
-//     const isDashboard3 = currentPath.includes('dashboard_3.html');
 //     const isProfile = currentPath.includes('profile.html');
 //     const shouldRedirectToDashboard = window.location.search.includes('redirect=true');
 

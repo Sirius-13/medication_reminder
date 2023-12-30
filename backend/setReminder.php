@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->execute()) {
         echo "New record created successfully";
         echo "<script>
-                    window.location.href = '../frontend/dashboard_3.html';
+                    window.location.href = '../frontend/dashboard_2.html';
                 </script>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
