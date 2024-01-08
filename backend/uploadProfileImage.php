@@ -31,6 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </script>";
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "<script>
+            window.location.href = '../frontend/profile.html';
+            </script>";
         }
 
         $conn->close();
