@@ -4,10 +4,11 @@ function showAlertDialog() {
     var alertDialog = document.getElementById('alertDialog');
     var alertMessage = document.getElementById('alertMessage');
 
+    var username = document.getElementByName('username_profile_edit');
     var password = document.getElementsByName('password_profile_edit')[0].value;
     var confirm_password = document.getElementsByName('confirm_password_profile_edit')[0].value;
 
-    if (!password || !confirm_password) {
+    if ((username && (!password && !confirm_password))) {
         event.preventDefault();
         alertDialog.style.display = 'block';
         alertMessage.textContent = "Please make sure you have entered password or confirm password.";
